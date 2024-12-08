@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node --no-warnings ./src/index.js",
+    "start": "bun run --no-warnings ./src/index.js",
     "dev": "node -e 'console.clear()' && bun run --watch --no-warnings ./src/index.js"
   },
   "devDependencies": {
