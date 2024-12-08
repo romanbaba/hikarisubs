@@ -1,6 +1,6 @@
 // @ts-check
 import settings from "@/settings.js";
-import rateLimit from "@/utils/rate-limit.js";
+// import rateLimit from "@/utils/rate-limit.js";
 import { bold, green } from "colorette";
 import cors from "cors";
 import "dotenv/config";
@@ -13,7 +13,7 @@ import process from "process";
 
 const app = express();
 app.use(cors(), morgan("dev"), helmet(), express.json());
-app.use(rateLimit);
+// app.use(rateLimit);
 
 (async function() {
 	const directory = path.join(process.cwd(), "src", "routes");
