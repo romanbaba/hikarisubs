@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "start": "node -e 'console.clear()' && bun run --watch --no-warnings ./src/index.js"
+    "start": "node -e 'console.clear()' && npm run --watch --no-warnings ./src/index.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
