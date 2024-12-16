@@ -3,43 +3,11 @@
 import Header from "@/app/components/header.jsx";
 import config from "@/config.js";
 import SWR from "@/functions/swr.js";
-import Link from "next/link";
 import Card from "./components/card";
-import Chip from "./components/chip";
-import Sidebar from "./components/sidebar";
 
 export default function Page() {
 	const { isLoading, data } = SWR(config.api.link);
-	const tags = [
-		"Genel",
-		"Aksiyon",
-		"Askeri",
-		"Büyü",
-		"Dram",
-		"Ecchi",
-		"Fantastik",
-		"Gerilim",
-		"Gizem",
-		"Harem",
-		"Isekai",
-		"Komedi",
-		"Korku",
-		"Macera",
-		"Mecha",
-		"Müzik",
-		"Okul",
-		"Oyun",
-		"Parodi",
-		"Polisiye",
-		"Suç",
-		"Süper Güçler",
-		"Şeytanlar",
-		"Şizofreni",
-		"Tarihi",
-		"Uzay",
-		"Vampir",
-		"Yaşamdan Kesitler",
-	].slice(0, 20);
+
 
 	/** @type {{ title: string; description: string; minutes: string; background: string; }[]} */
 	const movies = [
@@ -56,27 +24,18 @@ export default function Page() {
 	];
 
 	return (
-		<div className="flex">
-			<div className="w-full pl-0 pt-3 p-[1.33em]">
+		<div className="max-w-[1346px] container mx-auto">
+			<div className="p-[1.33em]">
 				<Header />
-				<div className="flex flex-row">
-					<Sidebar />
 
 
-					<div className="w-full pl-[16.25rem]">
-						<div className="flex justify-start mt-2">
-							{tags.map((tag, index) => <Link key={index} href={"#"}><Chip active={index === 0}>{tag}</Chip></Link>)}
-						</div>
-						<div className="pt-4 grid grid-cols-5 gap-x-[0.5rem] gap-y-[1.5rem] pb-2">
-							{movies.map((movie, index) => <Card.Thumbnail {...movie} key={index} />)}
-						</div>
-						<div className="pt-4 grid grid-cols-5 gap-x-[0.5rem] gap-y-[1.5rem] pb-2">
-							{movies.map((movie, index) => <Card.Thumbnail {...movie} key={index} />)}
-						</div>
-					</div>
+				<div className="pt-4 grid grid-cols-4 gap-x-[0.5rem] gap-y-[1.5rem] pb-2">
+					{movies.map((movie, index) => <Card.Thumbnail {...movie} key={index} />)}
+					{movies.map((movie, index) => <Card.Thumbnail {...movie} key={index} />)}
 				</div>
 			</div>
 		</div>
+
 	);
 }
 
