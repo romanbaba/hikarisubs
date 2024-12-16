@@ -4,7 +4,7 @@ import Input from "@/app/components/input.jsx";
 
 export default function Header() {
 	return (
-		<header className="flex items-center justify-between">
+		<header className=" w-full flex items-center justify-between pl-[1.33em]">
 			<div>logo</div>
 			<Input.Search />
 			<Button.Session> Google ile Oturum aç </Button.Session>
