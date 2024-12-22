@@ -28,7 +28,7 @@ Button.SignIn = function ButtonSignIn({ children, ...args }) {
 	return (
 		<Button
 			onClick={() => signIn("google")}
-			className="px-4 py-1.5 flex items-center justify-center gap-x-2 rounded-full text-black bg-white text-sm font-semibold hover:bg-white/70 transition-colors"
+			className="px-4 py-1.5  flex items-center justify-center gap-x-2 rounded-full text-black bg-white text-sm font-semibold hover:bg-white/70 transition-colors"
 			{...args}
 		>
 			<FaGoogle /> {children}

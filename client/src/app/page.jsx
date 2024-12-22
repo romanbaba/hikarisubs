@@ -1,11 +1,10 @@
 // @ts-check
 "use client";
-import Button from "@/app/components/button.jsx";
+import Header from "@/app/components/header.jsx";
 import Screen from "@/app/components/screen.jsx";
 import config from "@/config";
 import SWR from "@/functions/swr";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
 
 export default function Page() {
 	const { status, data } = useSession();
@@ -14,19 +13,16 @@ export default function Page() {
 	if (status === "loading" || isLoading) return <Screen.Loading />;
 
 	return (
-		<Screen.Center>
-			{status === "unauthenticated" ? (
-				<Button.SignIn>Google ile Oturum aç</Button.SignIn>
-			) : (
-				<div className="flex flex-col items-center space-y-4">
-					<Image src={data.user.image} alt={data.user.name} height={100} width={100} />
-					<div className="flex gap-x-2">
-						{admins.includes(data.user.email) && <Button.Admin>Dashboard</Button.Admin>}
-						<Button.SignOut>Çıkış yap</Button.SignOut>
+		<div className="grid h-full place-items-center">
+			<div className="h-full w-[1194px]">
+				<Header />
+				<Screen.Center>
+					<div className="flex flex-col items-center">
+						<h1 className="font-semibold text-2xl">Bir şeyler ters gitti.</h1>
+						<p className="text-[#a7a7a7]">Sana gösterebilecek seri veya film bulamadık.</p>
 					</div>
-				</div>
-			)}
-		</Screen.Center>
+				</Screen.Center>
+			</div>
+		</div>
 	);
 }
-
